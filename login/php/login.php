@@ -2,7 +2,6 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $errmsg = $_Post["err-message"];
 
     if (checkCredentials($username, $password)) {
         session_start();
@@ -10,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: dashboard.php");
         exit;
     } else {
-        echo "Invalid username or password";
+        echo "Invalid username/email or password!";
     }
 }
 
