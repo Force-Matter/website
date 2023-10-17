@@ -92,14 +92,14 @@
                 method: "POST",
                 body: formData
             })
-            .then(response => response.text())
-            .then(data => {
-                if (data === "success") {
+            .then(response => {
+                if (response.text() === "success") {
                     window.location.href = "dashboard.php"
-                } else {
+                } else if (response.text() === "fail") {
                     document.getElementsByName("err-message").textContent = "Invalid username/email or password!"
                 }
             })
+            .then(data => data)
             .catch(error => {
                 console.error("Error:", error)
             })
