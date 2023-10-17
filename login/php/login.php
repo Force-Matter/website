@@ -7,8 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION["username"] = $username;
         header("Location: dashboard.php");
+        return "success";
         exit;
     } else {
+        return "fail";
         echo "Invalid username/email or password!";
     }
 }
