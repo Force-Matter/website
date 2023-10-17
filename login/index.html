@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Force Matter</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .loginbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display:flex;
+            justify-content:center
+        }
+
+        .buttons > * {
+            margin-right:10px
+        }
+
+        .footer {
+            text-align:center
+        }
+
+        .error-message {
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Force Matter</h1>
+
+    <div class="container">
+        <form action="/php/login.php" method="post">
+            <h2>Login</h2>
+
+            <label for="username"><b>Username/Email</b></label>
+            <input type="text" placeholder="Enter Username/Email" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <div class="buttons">
+                <input type="submit" value="Login" class="loginbtn">
+            </div>
+
+            <div class="footer">
+                <span class="error-message" name="err-message"></span>
+                <span>
+                    Don't have an account?
+                    <a href="/signup">Sign up</a>
+                </span>
+                <span>
+                    Forgot your password?
+                    <a href="/forgot-password">Reset password</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
