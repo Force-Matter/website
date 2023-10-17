@@ -52,7 +52,7 @@
     <h1>Welcome to Force Matter</h1>
 
     <div class="container">
-        <form action="/php/login.php" method="post">
+        <form id="loginForm">
             <h2>Login</h2>
 
             <label for="username"><b>Username/Email</b></label>
@@ -78,5 +78,32 @@
             </div>
         </form>
     </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault()
+            const username = document.getElementsByName("username").value
+            const password = document.getElementsByName("password").value
+
+            const formData = new FormData()
+            formData.append("username", username)
+            formData.append("password", password)
+            
+            fetch("login.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === "success") {
+                    window.location.href = "dashboard.php"
+                } else {
+                    document.getElementsByName("err-message").textContent = "Invalid username/email or password!"
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error)
+            })
+        })
+    </script>
 </body>
 </html>
